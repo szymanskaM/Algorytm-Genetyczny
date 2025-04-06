@@ -141,7 +141,7 @@ def roulette_wheel_selection(tablica, fitness_scores,reproductive_size):
         cumulative_probability = 0
         for i, probability in enumerate(probabilities):
             cumulative_probability += probability
-            if rand <= cumulative_probability and i not in selected_indices:
+            if rand <= cumulative_probability:
                 selected_individuals.append(tablica[i])
                 selected_indices.append(i)  # Dodanie indeksu do listy wybranych
                 break
