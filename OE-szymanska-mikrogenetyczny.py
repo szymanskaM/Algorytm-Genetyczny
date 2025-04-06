@@ -534,19 +534,6 @@ def add_placeholder(entry, placeholder):
 
     entry.bind("<FocusIn>", on_focus_in)
     entry.bind("<FocusOut>", on_focus_out)
-def update_max_triangles():
-    try:
-        a_param = float(entry_a.get())
-        b_param = float(entry_b.get())
-        area_par = float(entry_area.get())
-        max_triangle = int(math.pi * a_param * b_param / area_par)
-        entry_max_triangles.delete(0, tk.END)
-        entry_max_triangles.insert(0, str(max_triangle))
-    except ValueError:
-        entry_max_triangles.delete(0, tk.END)
-        entry_max_triangles.insert(0, "Błąd")
-
-
 
 def run_algorithm():
     try:
@@ -631,7 +618,7 @@ add_placeholder(entry_b, "4")
 tk.Label(param_frame, text="Maksymalna liczba trójkątów:", bg="lightgray").pack(anchor="w", pady=5)
 entry_max_triangles = tk.Entry(param_frame)
 entry_max_triangles.pack(fill=tk.X, pady=5)
-add_placeholder(entry_max_triangles, "4")
+add_placeholder(entry_max_triangles, "7")
 
 tk.Label(param_frame, text="Liczba elit (elitism_count):", bg="lightgray").pack(anchor="w", pady=5)
 entry_elitism = tk.Entry(param_frame)
@@ -692,6 +679,5 @@ evolution_time_button = tk.Button(param_frame, text="Czas Ewolucji", command=plo
 evolution_time_button.pack(fill=tk.X, pady=5)
 
 
-update_max_triangles()
 root.mainloop()
 
